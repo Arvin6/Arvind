@@ -1,0 +1,5 @@
+Name of the movie: Logan
+Run time:	 127
+Lead actor:	 Hugh jackman
+Language:	 English
+Genre:		 Action
