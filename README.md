@@ -32,9 +32,9 @@ You can clone/download the project and run on eclipse.
 
 # Modules and Description 
 
-driverProgram.py -> The main driver module that takes care of all the functionality.
+driverProgram.py -> The main driver module.
 
-findplugins.py -> This module searches all python modules in the "./Plugins/" folder that extends the formatfactory class. [If your plugin doesn't extend the formatfactory class, it may not be listed]
+findplugins.py -> This module searches all python modules in the "./Plugins/" folder that extends the formatfactory class and returns the necessary reference for instantiation during runtime. [If your plugin doesn't extend the formatfactory class, it may not be listed] (Check source)
 
 formatfactory.py -> Base class for plugins. [check source]
 
