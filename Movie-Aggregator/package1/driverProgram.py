@@ -19,27 +19,14 @@ if __name__ == '__main__':
     Movie['genre']      = str(raw_input("Genre: "))
     #print(Movie)
     try:
-        listofplugins = findplugins("./Plugins",formatfactory)
+        pluginclass = findplugins("./Plugins",formatfactory)        # we get the reference of the class
     except Exception:
         print "is the plugin directory changed?"
         sys.exit()
-        
-    i=1
-    
-    for eachplugin in listofplugins:
-        print i,(eachplugin.__doc__).strip("\n")
-        i+=1    
-        
-    k=int(input('Select one format to save..'))
-    
     try:    
-        d = listofplugins[k-1]()        # We're instantiating the selected Plugin in runtime    
+        d = pluginclass()        # We're instantiating the selected Plugin in runtime    
         #print type(d)
-    except Exception:
-        if k<1 or k>len(listofplugins):             # Invalid choice, Nope!
-            print "Invalid choice, exiting"
-            sys.exit()
-        else:                                       # The plugin can't be instantiated.
+    except Exception:                               # The plugin can't be instantiated.
             print"Problem with the plugin, try another format."
             sys.exit()
                 
@@ -47,4 +34,4 @@ if __name__ == '__main__':
         d._write(Movie,save)
         print("saved. :)")
     except Exception:
-        print "Oops. Did you close the opened document instance? If not, check the save location .Something awful happened."
+        print "Oops. Is the document instance open in any application? If not, check the save location. Something awful happened."

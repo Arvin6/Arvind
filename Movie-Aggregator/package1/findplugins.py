@@ -29,9 +29,20 @@ def findplugins(path,classtype):
                             #print("Found subclass: "+key)
                             plugins.append(entry)
                     except TypeError:
-                        pass   
-    return plugins
-                
+                        pass  
+    i=1
+    for eachplugin in plugins:
+        print i,(eachplugin.__doc__).strip("\n")
+        i+=1    
+    k=int(input('Select one format to save.. '))   
+    while (k<1 or k>len(plugins)):
+        k=int(input('Invlaid, enter again.. '))
+                        
+    return plugins[k-1]     # A reference to the class is returned.
+
+'''
+For testing
+'''
 if __name__ == '__main__':
-    listofplugins = findplugins('./Plugins',formatfactory)          # Explicitly addressed the plugins folder in the project.
-    print(listofplugins)
+    pluginsclass = findplugins('./Plugins',formatfactory)          # Explicitly addressed the plugins folder in the project.
+    print(pluginsclass().__class__)
